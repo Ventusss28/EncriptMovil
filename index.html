@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EncriptMovil - Venta de Celulares</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #ff0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+        }
+
+        .product-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-list li {
+            width: 200px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .product-list li img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .product-list li h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+
+        #inicio img {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #inicio .intro-text {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <marquee behavior="scroll" direction="left"><strong>¡La mejor seguridad!</strong></marquee>
+        <h1>EncriptMovil</h1>
+        <p>Tu mejor opción en venta de celulares seguros y encriptados</p>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('inicio')">Inicio</a>
+        <a href="#" onclick="showPage('catalogo')">Catálogo</a>
+        <a href="#" onclick="showPage('contacto')">Contacto</a>
+    </nav>
+
+    <section id="inicio" class="page">
+        <img src="https://cdn3.iconfinder.com/data/icons/cyber-security-25/128/mobile_encryption-512.png"
+            alt="Mobile Encryption">
+        <div class="intro-text">
+            <p>Bienvenido a EncriptMovil, tu destino para celulares seguros y encriptados.</p>
+            <p>Descubre nuestra selección y protege tus comunicaciones hoy mismo.</p>
+        </div>
+    </section>
+
+    <section id="catalogo" class="page">
+        <h2>Catálogo de Productos</h2>
+        <div class="product-list" id="products-list">
+            <!-- La lista de productos se rellenará dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <section id="contacto" class="page">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta? ¡Contáctanos!</p>
+        <p>Correo: <a href="mailto:incognito@hotmail.com">incognito@hotmail.com</a></p>
+    </section>
+
+    <footer>
+        <p>Derechos de autor © 2024 - EncriptMovil</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName('page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById(pageId).style.display = 'block';
+
+            if (pageId === 'catalogo') {
+                showProducts();
+            }
+        }
+
+        function showProducts() {
+            var productList = document.getElementById('products-list');
+            var products = '';
+
+            products += '<li><a href="#" onclick="showModels(\'iphone\')"><img src="https://imgs.search.brave.com/RmVdPxPrBoMQ8NyHdw3m_HuBYoDMY2BAYrdJwiYkYX0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wbmcu/bW9uc3Rlci93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMy8wOS9Q/TkcubW9uc3Rlcmlw/aG9uZS0xNS1wbHVz/LWJsYWNrJTIwcG5n/LTE3N3gyMDAucG5n" alt="iPhone"></a><h3>iPhone</h3></li>';
+            products += '<li><a href="#" onclick="showModels(\'samsung\')"><img src="https://imgs.search.brave.com/v09-FosBQ6q8ySXamlJVoq-2NhjEkB6NKdtuR_XvsXg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMxLnhkYWltYWdl/cy5jb20vd29yZHBy/ZXNzL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIzLzAzL3NhbXN1/bmctZ2FsYXh5LXMy/My11bHRyYS5wbmc" alt="Samsung"></a><h3>Samsung</h3></li>';
+            products += '<li><a href="#" onclick="showModels(\'motorola\')"><img src="https://imgs.search.brave.com/YPYxjm7t-AsKVV6vqWwC4xAbjzhfRzFbzt9nt4YiFBE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cmFkaW8xaW5jLmNv/bS9pbmNsdWRlL3No/YXJlZC1pbWFnZXMv/bW90b3JvbGEvcHJv/ZHVjdHMtc21hbGwv/bW90b3JvbGEtZHRy/NzAwLnBuZw" alt="Motorola"></a><h3>Motorola</h3></li>';
+            productList.innerHTML = products;
+        }
+
+        function showModels(category) {
+            var productList = document.getElementById('products-list');
+            var models = '';
+
+            switch (category) {
+                case 'iphone':
+                    models += '<li>iPhone 11</li>';
+                    models += '<li>iPhone 12</li>';
+                    models += '<li>iPhone 13</li>';
+                    models += '<li>iPhone 14</li>';
+                    models += '<li>iPhone 15</li>';
+                    break;
+                case 'samsung':
+                    models += '<li>Samsung Galaxy S20</li>';
+                    models += '<li>Samsung Galaxy S21</li>';
+                    models += '<li>Samsung Galaxy Note 20</li>';
+                    models += '<li>Samsung Galaxy Z Fold 2</li>';
+                    models += '<li>Samsung Galaxy A71</li>';
+                    break;
+                case 'motorola':
+                    models += '<li>Moto G Power</li>';
+                    models += '<li>Moto G Stylus</li>';
+                    models += '<li>Moto G Fast</li>';
+                    models += '<li>Moto E</li>';
+                    models += '<li>Moto Edge</li>';
+                    // Agregamos tres modelos de radios Motorola populares
+                    models += '<li>Mototrbo XPR 7550</li>';
+                    models += '<li>Motorola SL300</li>';
+                    models += '<li>Motorola APX 6000</li>';
+                    break;
+                default:
+                    models += '<li>No hay modelos disponibles en esta categoría.</li>';
+            }
+
+            productList.innerHTML = models;
+        }
+
+        // Mostrar la página de inicio por defecto
+        showPage('inicio');
+    </script>
+
+</body>
+
+</html>
